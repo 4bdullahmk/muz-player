@@ -10,9 +10,7 @@ The behavior and architecture below come from DriveVerse. The demo shows the ori
 
 <p align="center"><strong>Live, time-synced song lyrics on your car's CarPlay screen — for whatever you're already playing in Apple Music or Spotify.</strong></p>
 
-<p align="center">
-  <img src="assets/demo.gif" alt="DriveVerse showing synced lyrics advancing on the iPhone lock screen" width="300">
-</p>
+
 
 <p align="center"><em>Lyrics advancing live on the lock screen. The same Live Activity mirrors onto CarPlay on iOS 26. (<a href="assets/demo.mp4">watch the clip</a>)</em></p>
 
@@ -20,9 +18,7 @@ DriveVerse watches whatever song is playing, finds the synced lyrics for it, and
 
 It doesn't play any music of its own, it isn't a full CarPlay app, and it never touches your playback. It only reads what's playing and shows the lyrics.
 
-Oh, and if you listen to Hindi, Punjabi, Russian, Japanese, or anything else that isn't written in the Latin alphabet, DriveVerse romanizes the lyrics so you can actually read along in English letters.
-
-> **A note on lyrics and copyright.** Lyrics come from [LRCLIB](https://lrclib.net), a free community lyrics database. That's fine for a personal app you build and run yourself, which is exactly what this is. It is *not* okay for the App Store without a proper licensed lyrics provider, so please don't ship it there. Lyrics are cached only on your device, for 30 days at most.
+Oh, and if you listen to Punjabi, Russian, Japanese, or anything else that isn't written in the Latin alphabet, DriveVerse romanizes the lyrics so you can actually read along in English letters.
 
 ---
 
@@ -178,12 +174,5 @@ DriveVerseWidgets/  Live Activity + Dynamic Island UI
 DriveVerseTests/    The test suite
 ```
 
-The Xcode project is generated from `project.yml` with [XcodeGen](https://github.com/yonaskolb/XcodeGen). `Package.swift` is a helper so the core logic can be tested on a Mac without a device.
 
-## Built with
 
-Swift, SwiftUI, ActivityKit, WidgetKit, MediaPlayer, and Core Location. No third-party libraries. Lyrics by [LRCLIB](https://lrclib.net).
-
-## License
-
-The code is released under the [MIT License](LICENSE) — use it, fork it, learn from it. Note that this applies to the app's own code only, not to any song lyrics, which belong to their respective owners and are fetched from LRCLIB for personal use.
