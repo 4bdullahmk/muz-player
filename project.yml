@@ -1,6 +1,6 @@
 name: DriveVerse
 options:
-  bundleIdPrefix: com.praveetgupta
+  bundleIdPrefix: com.abdullahkhan.driveverse.codex20261014
   deploymentTarget:
     iOS: "26.0"
   createIntermediateGroups: true
@@ -29,19 +29,19 @@ targets:
       - path: DriveVerse
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.praveetgupta.driveverse
+        PRODUCT_BUNDLE_IDENTIFIER: com.abdullahkhan.driveverse.codex20261014
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
     info:
       path: DriveVerse/Resources/Info.plist
       properties:
-        CFBundleDisplayName: DriveVerse
+        CFBundleDisplayName: Muz Player
         NSSupportsLiveActivities: true
         # Lyric lines change every few seconds — without the frequent-updates
         # budget, ActivityKit silently stops rendering updates ~30 s after
         # the app backgrounds while Activity.update keeps getting called.
         NSSupportsLiveActivitiesFrequentUpdates: true
-        NSAppleMusicUsageDescription: DriveVerse reads the current Apple Music track to fetch and display synced lyrics. It never plays or modifies your music.
+        NSAppleMusicUsageDescription: Muz Player reads the current Apple Music track to fetch and display synced lyrics. It never plays or modifies your music.
         # location (not audio): iOS forbids Live Activity updates from apps
         # whose only background reason is playing media.
         UIBackgroundModes: [location]
@@ -75,11 +75,11 @@ targets:
       - path: DriveVerse/LiveActivity/LyricsAttributes.swift
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.praveetgupta.driveverse.widgets
+        PRODUCT_BUNDLE_IDENTIFIER: com.abdullahkhan.driveverse.codex20261014.widgets
     info:
       path: DriveVerseWidgets/Info.plist
       properties:
-        CFBundleDisplayName: DriveVerse Lyrics
+        CFBundleDisplayName: Muz Player Lyrics
         NSSupportsLiveActivitiesFrequentUpdates: true
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension

@@ -47,7 +47,7 @@ final class AppModel: ObservableObject {
             // key is inert and ActivityKit's standard budget silently
             // freezes the tile after roughly a minute of lyric updates.
             if driveMode, !ActivityAuthorizationInfo().frequentPushesEnabled {
-                errorMessage = "For smooth lyrics, turn on Settings → DriveVerse → Live Activities → More Frequent Updates."
+                errorMessage = "For smooth lyrics, turn on Settings → Muz Player → Live Activities → More Frequent Updates."
             }
 #endif
 #endif
@@ -275,7 +275,7 @@ final class AppModel: ObservableObject {
                 try backgroundKeeper.start()
             } catch {
                 driveMode = false
-                errorMessage = "Drive Mode needs location access to stay alive in the background. Allow it for DriveVerse in Settings → Privacy → Location Services."
+                errorMessage = "Drive Mode needs location access to stay alive in the background. Allow it for Muz Player in Settings → Privacy → Location Services."
             }
         } else if !shouldRun && backgroundKeeper.isRunning {
             backgroundKeeper.stop()

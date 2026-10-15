@@ -7,6 +7,9 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
+                    if model.nowPlaying == nil {
+                        WelcomeCard()
+                    }
                     NowPlayingCard()
                     LyricPreviewCard()
                     SpotifySection()
@@ -14,7 +17,7 @@ struct HomeView: View {
                     if model.appleMusicAuth == .denied {
                         InfoBanner(
                             symbol: "exclamationmark.triangle",
-                            text: "Apple Music detection is off. Allow Media & Apple Music access in Settings → DriveVerse."
+                            text: "Apple Music detection is off. Allow Media & Apple Music access in Settings → Muz Player."
                         )
                     }
                     if let message = model.errorMessage {
@@ -23,7 +26,7 @@ struct HomeView: View {
                 }
                 .padding()
             }
-            .navigationTitle("DriveVerse")
+            .navigationTitle("Muz Player")
             .toolbar {
                 NavigationLink {
                     SettingsView()
@@ -33,6 +36,28 @@ struct HomeView: View {
             }
         }
         .task { model.start() }
+    }
+}
+
+private struct WelcomeCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Welcome to Muz Player")
+                .font(.title2.bold())
+            Text("Your music, your drive. Start a song and let the lyrics follow along.")
+                .font(.subheadline)
+        }
+        .foregroundStyle(.white)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(
+            LinearGradient(
+                colors: [Color(red: 1, green: 0.40, blue: 0.29), Color(red: 0.96, green: 0.12, blue: 0.43)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: 16)
+        )
     }
 }
 
@@ -62,7 +87,7 @@ private struct NowPlayingCard: View {
             } else {
                 Label("Nothing playing", systemImage: "music.note")
                     .foregroundStyle(.secondary)
-                Text("Start a song in Apple Music or Spotify — DriveVerse picks it up automatically.")
+                Text("Start a song in Apple Music or Spotify — Muz Player picks it up automatically.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }

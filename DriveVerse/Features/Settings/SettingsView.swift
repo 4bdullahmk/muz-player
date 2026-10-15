@@ -38,7 +38,7 @@ struct SettingsView: View {
             } header: {
                 Text("Spotify")
             } footer: {
-                Text("How often DriveVerse asks Spotify what's playing. Lower is snappier; higher saves battery and API quota. Between reports, lyric timing is extrapolated locally.")
+                Text("How often Muz Player asks Spotify what's playing. Lower is snappier; higher saves battery and API quota. Between reports, lyric timing is extrapolated locally.")
             }
 
             Section {
@@ -61,7 +61,7 @@ struct SettingsView: View {
             } header: {
                 Text("Drive Mode & battery")
             } footer: {
-                Text("Drive Mode keeps DriveVerse awake in the background using a low-power location session, so lyrics keep updating on CarPlay and the lock screen while you drive. Locations are discarded immediately and never stored. It uses extra battery, so it's opt-in. This approach is fine for a personal sideloaded app but would not pass App Store review.")
+                Text("Drive Mode keeps Muz Player awake in the background using a low-power location session, so lyrics keep updating on CarPlay and the lock screen while you drive. Locations are discarded immediately and never stored. It uses extra battery, so it's opt-in. This approach is fine for a personal sideloaded app but would not pass App Store review.")
             }
 
             Section {
@@ -69,7 +69,7 @@ struct SettingsView: View {
             } header: {
                 Text("About")
             } footer: {
-                Text("DriveVerse is a personal-use app. Lyrics are fetched from the community-run LRCLIB API for private, non-commercial display. Do not distribute this app without a licensed lyrics provider.")
+                Text("Muz Player is a personal-use app based on DriveVerse. Lyrics are fetched from the community-run LRCLIB API for private, non-commercial display. Do not distribute this app without a licensed lyrics provider.")
             }
         }
         .navigationTitle("Settings")

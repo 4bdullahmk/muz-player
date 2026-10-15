@@ -1,8 +1,14 @@
 <p align="center">
-  <img src="assets/app-icon-rounded.png" alt="DriveVerse app icon" width="112">
+  <img src="DriveVerse/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="Muz Player app icon" width="112">
 </p>
 
-<h1 align="center">DriveVerse</h1>
+<h1 align="center">Muz Player</h1>
+
+Muz Player is a personal customization of [DriveVerse](https://github.com/praveetgupta/driveverse) by Praveet Gupta. It keeps the original CarPlay lyrics functionality and adds a coral and pink identity, an M app icon, and a welcome card. The original project is MIT licensed; see [LICENSE](LICENSE).
+
+This repository contains source code for personal use. To install it on an iPhone, use Xcode 26 or later, sign in with your Apple account, and replace the bundle identifiers in `project.yml` with identifiers belonging to your signing team. Create `DriveVerse/Resources/Secrets.plist` from `Secrets.example.plist` before building. Apple Music works without a Spotify Client ID; Spotify requires your own ID. Do not commit `Secrets.plist`.
+
+The guide below describes the original DriveVerse project. Its screenshots and setup examples use the original name.
 
 <p align="center"><strong>Live, time-synced song lyrics on your car's CarPlay screen — for whatever you're already playing in Apple Music or Spotify.</strong></p>
 
