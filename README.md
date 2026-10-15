@@ -6,9 +6,9 @@
 
 Muz Player is a personal customization of [DriveVerse](https://github.com/praveetgupta/driveverse) by Praveet Gupta. It keeps the original CarPlay lyrics functionality and adds a coral and pink identity, an M app icon, and a welcome card. The original project is MIT licensed; see [LICENSE](LICENSE).
 
-This repository contains source code for personal use. To install it on an iPhone, use Xcode 26 or later, sign in with your Apple account, and replace the bundle identifiers in `project.yml` with identifiers belonging to your signing team. Create `DriveVerse/Resources/Secrets.plist` from `Secrets.example.plist` before building. Apple Music works without a Spotify Client ID; Spotify requires your own ID. Do not commit `Secrets.plist`.
+This repository contains source code for personal use. To install it on an iPhone, use Xcode 26 or later, sign in with your Apple account, and replace the bundle identifiers in `project.yml` with identifiers belonging to your signing team. Regenerate the Xcode project with `./scripts/generate.sh` after changing them. Create `DriveVerse/Resources/Secrets.plist` from `Secrets.example.plist` before building. Apple Music works without a Spotify Client ID; Spotify requires your own ID. Do not commit `Secrets.plist`.
 
-The guide below describes the original DriveVerse project. Its screenshots and setup examples use the original name.
+The behavior and architecture below come from DriveVerse. The demo shows the original app; the installation steps target this fork.
 
 <p align="center"><strong>Live, time-synced song lyrics on your car's CarPlay screen — for whatever you're already playing in Apple Music or Spotify.</strong></p>
 
@@ -68,8 +68,8 @@ A few details worth knowing:
 ### 1. Get the code and open it
 
 ```bash
-git clone https://github.com/praveetgupta/driveverse.git
-cd driveverse
+git clone https://github.com/4bdullahmk/muz-player.git
+cd muz-player
 ```
 
 The Xcode project is checked in, so you can open `DriveVerse.xcodeproj` directly. (If you ever change which files exist, regenerate it with `./scripts/generate.sh`, which needs `brew install xcodegen`.)
@@ -94,12 +94,12 @@ If you *do* want Spotify:
 
 Open the project in Xcode, pick the **DriveVerse** scheme, and set your signing team on both the `DriveVerse` and `DriveVerseWidgets` targets (Signing & Capabilities tab). Plug in your iPhone and hit Run.
 
-**You'll need your own bundle identifier.** Bundle IDs are globally unique, and the one in this repo is already registered, so signing will fail with "cannot be registered to your development team" until you change it. Edit `project.yml` and replace `com.praveetgupta` with something of your own (the widget ID must stay a child of the app ID):
+**You'll need your own bundle identifier.** Bundle IDs are globally unique, and the ones in this repository belong to its owner. Edit `project.yml` and replace `com.abdullahkhan.driveverse.codex20261014` with a prefix of your own (the widget ID must stay a child of the app ID):
 
 ```yaml
-bundleIdPrefix: com.yourname                             # options
-PRODUCT_BUNDLE_IDENTIFIER: com.yourname.driveverse       # DriveVerse target
-PRODUCT_BUNDLE_IDENTIFIER: com.yourname.driveverse.widgets   # DriveVerseWidgets target
+bundleIdPrefix: com.yourname.muzplayer
+PRODUCT_BUNDLE_IDENTIFIER: com.yourname.muzplayer
+PRODUCT_BUNDLE_IDENTIFIER: com.yourname.muzplayer.widgets
 ```
 
 Then run `./scripts/generate.sh` to regenerate the project.
@@ -107,24 +107,24 @@ Then run `./scripts/generate.sh` to regenerate the project.
 ### 4. First-launch permissions
 
 - **Media & Apple Music** — needed to see what Apple Music is playing.
-- **Live Activities** — turn on **More Frequent Updates** under Settings → DriveVerse → Live Activities, or the lyrics stop updating after about 30 seconds in the background.
+- **Live Activities** — turn on **More Frequent Updates** under Settings → Muz Player → Live Activities, or the lyrics stop updating after about 30 seconds in the background.
 - **Location (While Using)** — asked the first time you turn on Drive Mode. It's how the app stays awake in the background (explained below). Say yes to the "Always" upgrade later only if you want the hands-free CarPlay automation.
 
 ## Using it in the car
 
 1. Connect your phone to CarPlay and play something in Apple Music or Spotify.
-2. Open DriveVerse and turn on **Drive Mode**.
+2. Open Muz Player and turn on **Drive Mode**.
 3. When a song with synced lyrics plays, the lyrics tile shows up on the car screen (and your lock screen and Dynamic Island).
 
 ### Turn it on automatically when you get in
 
-You don't have to open the app every time. DriveVerse includes two Shortcuts actions — **Start Drive Mode** and **Stop Drive Mode** — so your phone can do it for you:
+You don't have to open the app every time. Muz Player includes two Shortcuts actions — **Start Drive Mode** and **Stop Drive Mode** — so your phone can do it for you:
 
 1. Open the **Shortcuts** app → **Automation** → **+**.
 2. Pick **CarPlay** → **Connects** → **Run Immediately** → add the **Start Drive Mode** action.
 3. Make a second one: **CarPlay** → **Disconnects** → **Run Immediately** → **Stop Drive Mode**.
 
-Now getting in the car starts DriveVerse in the background and puts up the lyrics tile on its own (it shows "♪ Waiting for music…" until you press play). Leaving the car shuts it all down so nothing keeps running in the background.
+Now getting in the car starts Muz Player in the background and puts up the lyrics tile on its own (it shows "♪ Waiting for music…" until you press play). Leaving the car shuts it all down so nothing keeps running in the background.
 
 ### Why Drive Mode needs to exist
 
